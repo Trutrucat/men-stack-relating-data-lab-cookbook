@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/assets/css/styles.css"/>
+  <title>Add a Food</title>
+</head>
+<body> 
+<%- include('../partials/_navbar.ejs') %>
+  <h1>Add a New Food!</h1>
+  <form action="/users/<%=user._id%>/foods" method="POST">
+    <label for="food">Food Text:</label>
+    <input type="text" name="food" id="food"/>
+    <label for="isInPantry">Is this food in the pantry?</label>
+    <input type="checkbox" name="isInPantry" id="isInPantry"/>
+    <button type="submit">Add Food</button>
+  </form>
+  <a href="/foods/">Back to Pantry</a>
+</body>
+</html>

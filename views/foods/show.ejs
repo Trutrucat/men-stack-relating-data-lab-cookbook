@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/assets/css/styles.css"/>
+  <title><%= food.text %></title>
+</head>
+<body>
+    <%- include('./partials/_navbar.ejs') %>
+  <h1><%= food.text %></h1>
+  <% if(food.isInPantry){ %>
+    <p>You have this food in your pantry....</p>
+  <% } else { %>
+    <p>You do not have this food in your pantry</p>
+  <% } %>
+  <form action="/foods/<%=note._id%>?_method=DELETE" method="POST">
+    <button type="submit">
+      Delete <%= food._id %>
+    </button>
+  </form>
+  <a href="/foods/<%= note._id %>/edit">Edit <%= food._id %></a>
+  <a href="/foods">Back to Foods</a>
+</body>
+</html>

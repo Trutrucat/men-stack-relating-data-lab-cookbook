@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/assets/css/styles.css"/>
+  <title>Edit Pantry with id <%= pantry._id %></title>
+</head>
+
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    <h1>Edit <%= food._id %> !</h1>
+  <form action="/pantry/<%=pantry._id%>?_method=PUT" method="POST">
+    <label for="text">Food Text:</label>
+    <input type="text" name="text" id="text" value="<%= food.text %>" />
+    <label for="isInPantry">Is this food in the pantry?</label>
+    <input 
+       type="checkbox" 
+       name="isInPantry" 
+       id="isInPantry" 
+       <% if(food.isInPantry){ %>
+         checked
+       <% } %> />
+    <button type="submit">Edit Food</button>
+  </form>
+  <a href="/pantry/<%=food._id%>">Back to Pantry Show Page for <%=food._id%> </a>
+</body>
+</html>
