@@ -37,7 +37,7 @@ router.get('/:id/edit', async (req, res) => {
         if (!pantryItem) {
             return res.redirect('/')
         }
-        res.render('edit.ejs', { user: req.session.user, food: pantryItem })    
+        res.render('foods/edit.ejs', { user: req.session.user, food: pantryItem })    
     }catch (error) {
         console.error(error)
         res.redirect('/')   
