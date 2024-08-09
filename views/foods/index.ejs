@@ -13,7 +13,13 @@
   <ul>
     <% if (pantryItems && pantryItems.length > 0) { %>
         <% pantryItems.forEach(item => { %>
-            <li><%= item.food %> - <%= item.quantity %></li>
+            <li>
+              <%= item.food %> - <%= item.isInPantry ? 'In Pantry' : 'Not in Pantry'%> 
+              <a href="/users/<%= user._id %>/foods/<%= item._id %>/edit">Edit</a>
+              <form action="/users/<%= user._id %> /foods/<%= item._id %>?_method=DELETE" method="POST" style="display:inline;">
+                <button type="submit">Delete</button>
+            </form>
+            </li>
         <% }); %>
     <% } else { %>
         <li>No items in your pantry</li>

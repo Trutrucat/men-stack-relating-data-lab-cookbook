@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/assets/css/styles.css"/>
-  <title>Edit Pantry with id <%= pantry._id %></title>
+  <title>Edit Pantry with id <%= food._id %></title>
 </head>
 
 <body>
-    <%- include('../partials/_navbar.ejs') %>
+    <%- include('partials/_navbar.ejs') %>
     <h1>Edit <%= food._id %> !</h1>
-  <form action="/pantry/<%=pantry._id%>?_method=PUT" method="POST">
-    <label for="text">Food Text:</label>
-    <input type="text" name="text" id="text" value="<%= food.text %>" />
+  <form action="/users/<%=user._id%>/foods/<%= food._id %>?_method=PUT" method="POST">
+    <label for="food">Food Text:</label>
+    <input type="text" name="food" id="food" value="<%= food.food %>" />
     <label for="isInPantry">Is this food in the pantry?</label>
     <input 
        type="checkbox" 
@@ -23,6 +23,6 @@
        <% } %> />
     <button type="submit">Edit Food</button>
   </form>
-  <a href="/pantry/<%=food._id%>">Back to Pantry Show Page for <%=food._id%> </a>
+  <a href="/users/<%= user._id %> /foods/<%= food._id %>">Back to Pantry Show Page for <%=food._id %></a>
 </body>
 </html>
